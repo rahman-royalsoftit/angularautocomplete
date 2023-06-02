@@ -1,0 +1,37 @@
+
+<div class="container pt-4">
+  <div class="card mt-4">
+    <div class="card-header bg-info">
+    <h1> Angular Material Autocomplete </h1> 
+    </div>
+    <div class="card-body">   
+      
+    <div class="bg-warning p-2"> <span class="fs-5">Angular Material Select Example</span> </div>
+    <mat-form-field class="example-full-width pb-5" appearance="fill">
+      <mat-label>Select Color Name</mat-label>
+      <mat-select>
+        <mat-option>Select Color Name</mat-option>
+        <mat-option *ngFor="let item of colorList" [value]="item.colorID"> 
+          <span>{{item.colorName}}</span>    
+        </mat-option>
+      
+      </mat-select>
+    </mat-form-field>       
+    
+      <div class="bg-info p-2"> <span class="fs-5">Angular Material Autocomplete Example</span> </div>
+      <mat-form-field class="example-full-width ">     
+        <mat-label>Search Color Name</mat-label>               
+        <input  type="text"  placeholder="Search Color Name"   matInput  
+        [formControl]="colorCtrl" [matAutocomplete]="auto" >   
+        <mat-autocomplete  autoActiveFirstOption #auto="matAutocomplete" 
+        [displayWith]="displayColor" >
+          <mat-option *ngFor="let item of filteredColor | async" [value]="item"> 
+            <span>{{item.colorName}} </span>    
+          </mat-option>
+        </mat-autocomplete>  
+      
+    </mat-form-field>
+
+    </div>
+  </div>
+</div>
